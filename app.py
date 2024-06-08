@@ -66,8 +66,21 @@ def load_initial_prompt(file_path):
 def load_csv_data(file_path):
     return pd.read_csv(file_path)
 
-# Streamlit application UI
-st.title("Zobot - Your Foodie Friend")
+# Center-align the title using HTML/CSS
+st.markdown(
+    """
+    <style>
+    .centered-title {
+        text-align: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Display the title with the centered-title class
+# Title of the page
+st.markdown("<h1 class='centered-title'>Zobot - Your Foodie Friend</h1>", unsafe_allow_html=True)
 
 # Load initial prompt
 initial_prompt = load_initial_prompt('initial_prompt.txt')
@@ -88,12 +101,72 @@ if user_input:
     # Get the response from the chatbot
     response = get_gpt_response(user_input)
 
+# Custom CSS for aligning messages
+st.markdown("""
+    <style>
+    .message-container {
+        margin: 10px 0;
+    }
+    .user-name {
+        font-weight: bold;
+        text-align: right;
+        margin-bottom: 2px;
+        display: block;  /* Ensures it occupies full width */
+    }
+    .bot-name {
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 2px;
+    }
+    .user-message {
+        text-align: right;
+        # color: #0d47a1;
+        background-color: #e3f2fd;
+        padding: 10px;
+        border-radius: 10px;
+        display: inline-block;
+        max-width: 80%;
+        margin-left: auto;  /* Align to the right */
+    }
+    .bot-message {
+        text-align: left;
+        # color: #880e4f;
+        background-color: #e3f2fd;
+        padding: 10px;
+        border-radius: 10px;
+        display: inline-block;
+        max-width: 80%;
+    }
+    /* Ensure the name and message are grouped together and aligned properly */
+    .user-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;  /* Aligns the name and message to the right */
+    }
+    .bot-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;  /* Aligns the name and message to the left */
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-# Display conversation history in order, including the latest response at the bottom
+# Display conversation history with alignment
 for message in st.session_state['conversation'][1:]:  # Skip the first message
-    speaker = "You" if message['role'] == "user" else "Zobot"
-    st.markdown(f"**{speaker}:** {message['content']}")
-
+    if message['role'] == 'user':
+        st.markdown(f"""
+            <div class='message-container user-container'>
+                <div class='user-name'>You</div>
+                <div class='user-message'>{message['content']}</div>
+            </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown(f"""
+            <div class='message-container bot-container'>
+                <div class='bot-name'>Zobot</div>
+                <div class='bot-message'>{message['content']}</div>
+            </div>
+        """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     pass
