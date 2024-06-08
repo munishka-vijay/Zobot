@@ -37,6 +37,129 @@ Be proactive in offering help and suggestions based on user preferences and hist
 Dietary Preference:
 When asking the user for dietary preference, always include the option of vegan as well (vegetarian, non-vegetarian, vegan).
 
-The cost of foof items will always be in ruppees and never dollars.
+The cost of food items will always be in ruppees and never dollars.
 
-if a user wants a particular dish and you see that they have ordered it from a restaurant in the past and given a rating of more than 4, always suggest that restaurant first. then follow it up with other restaurants. however if the rating they gave is less than 4, dont suggest that restaurant.
+if a user wants a particular dish and you see that they have ordered it from a restaurant in the past and given a rating of more than 4, always suggest that restaurant first. then follow it up with other restaurants. dont ask for confirmation, just suggest restaurants. however if the rating they gave is less than 4, dont suggest that restaurant.
+
+Here is the dataset which can be used for checking order history of customers:
+Sno,User_id,Order Date,Restaurant,Food Items,Rating provided,Cost,Time of Delivery (in mins)
+1,2,16/4/24,Singh Foods,"[Sunny Leone Chaap, Rumali Roti, Badam Milk, Badam Milk]",4.5,460,10
+2,2,15/4/24,Domino's Pizza,"[Farmhouse Pizza,Coke,Choco Lava Cake]",4,780,28
+3,1,16/4/24,Singh Foods,Malai Chaap,2,240,17
+4,4,13/4/24,Lunch Box,"[Rajma Chaval, dahi]",3,300,35
+5,2,16/4/24,Pind,Chole Kulche,4,350,40
+6,1,14/4/24,Sindhi Kitchen,Kadhi Chaval,3,180,14
+7,3,12/4/24,Mc Donalds,Happy Meal,,350,20
+8,4,11/4/24,Burger King,"[Zinger, medium fries, pepsi]",,600,30
+9,5,6/4/24,North India Ka Zayka,"[North Indian Thali, chaas, laccha paratha]",,800,45
+10,3,8/4/24,Pind,Lassi,,100,20
+11,1,24/4/24,DND Wealth,High Protein Paneer Teriyaki Bowl,1,226,34
+12,2,12/5/24,The Belgian Waffle,Mini Waffle Box of 4 - Chocolate,4.5,378.15,28
+13,3,1/5/24,Tea Bear,"[Mango Bubble Tea, Strawberry Bubble Tea] ",4,635.9,36
+14,4,25/4/24,Pizza Galeria,"[Coca Cola, Cheesy Jalapeno Sauce, Fresh Farm Pizza, Cheesy Garlic Bread]",3,479.45,34
+15,5,21/4/24,HRX by Eat Fit,Hummus Buddha Bowl Veg,5,327,22
+16,1,2/4/24,Choudhary Sweets,"[Paneer Paratha, Aloo Paratha]",4,371.47,32
+17,2,1/4/24,The Golden Cauldron,"[White Sauce Pasta, Golden Crest from Swear By Biriyani]",,408.97,28
+18,3,26/3/24,Craving O Clock,"[Veg Supreme Burger Meal, Tandoori Paneer Wrap]",,582,42
+19,4,24/3/24,Meghana foods,Paneer Biriyani,5,380,45
+20,5,13/3/24,Roti-Wala.Com,"[Palak Paneer with 3 Wheat Phulka, Dal Makhani Healthy Rice Bowl]",2,285.62,18
+21,1,20/4/24,Subway,"[Veggie Delight Sub, Coke Zero]",4.5,300,25
+22,2,19/4/24,Burger King,"[Whopper, Onion Rings, Chocolate Shake]",4,650,30
+23,3,18/4/24,Domino's Pizza,"[Pepperoni Pizza, Garlic Bread, Pepsi]",4.2,720,35
+24,4,17/4/24,Chinese Express,"[Hakka Noodles, Sweet and Sour Chicken]",3.5,490,40
+25,5,16/4/24,The Salad Bowl,"[Caesar Salad, Orange Juice]",4.8,410,20
+26,1,15/4/24,Indian Tandoor,"[Butter Chicken, Naan, Lassi]",5,780,50
+27,2,14/4/24,Singh Foods,"[Paneer Tikka, Garlic Naan, Buttermilk]",4.5,520,25
+28,3,13/4/24,Pind,"[Veg Biryani, Raita]",4,350,32
+29,4,12/4/24,Mc Donalds,"[Big Mac, Fries, Coke]",3.8,550,25
+30,5,11/4/24,Thai Palace,"[Green Curry, Jasmine Rice]",4.5,670,45
+31,1,10/4/24,Chaat Corner,"[Pani Puri, Dahi Puri]",4,180,15
+32,2,9/4/24,Mexican Fiesta,"[Tacos, Nachos, Guacamole]",4.2,560,35
+33,3,8/4/24,Pizza Hut,"[Margherita Pizza, Garlic Knots]",3.5,600,40
+34,4,7/4/24,Healthy Bites,"[Quinoa Salad, Smoothie]",5,320,30
+35,5,6/4/24,Pind,"[Amritsari Kulcha, Chole]",4.8,460,28
+36,1,5/4/24,Lunch Box,"[Paneer Butter Masala, Rice]",4,500,38
+37,2,4/4/24,Cafe Delight,"[Veg Sandwich, Cold Coffee]",3.5,250,20
+38,3,3/4/24,Biryani Blues,"[Chicken Biryani, Raita]",4.5,690,42
+39,4,2/4/24,Spice Junction,"[Paneer Tikka Masala, Butter Naan]",4.7,550,37
+40,5,1/4/24,Street Eats,"[Chicken Shawarma, Hummus]",,470,30
+41,1,30/3/24,Domino's Pizza,"[Veggie Pizza, Choco Lava Cake]",,650,32
+42,2,29/3/24,Sindhi Kitchen,"[Sindhi Kadhi, Jeera Rice]",,480,22
+43,3,28/3/24,Mad Over Donuts,"[Chocolate Donuts, Coffee]",,290,18
+44,4,27/3/24,North Indian Zaika,"[Dal Makhani, Garlic Naan]",,620,35
+45,5,26/3/24,Goan Delights,"[Fish Curry, Steamed Rice]",,570,40
+46,1,25/3/24,Cafe Coffee Day,"[Espresso, Blueberry Muffin]",,320,20
+47,2,24/3/24,Tandoori Nights,"[Chicken Tikka, Roomali Roti]",,520,30
+48,3,23/3/24,Keventers,"[Chocolate Milkshake, Oreo Shake]",,240,15
+49,4,22/3/24,Italiano,"[Pasta Alfredo, Garlic Bread]",,550,38
+50,5,21/3/24,BBQ Nation,"[Grilled Chicken, Mixed Veg Platter]",,980,45
+51,1,20/3/24,Food Truck,"[Pulled Pork Sandwich, Lemonade]",,420,30
+52,2,19/3/24,Chai Point,"[Masala Chai, Samosa]",,150,18
+53,3,18/3/24,Momo Station,"[Veg Momos, Chilli Sauce]",4.5,210,20
+54,4,17/3/24,Salad Stories,"[Greek Salad, Watermelon Juice]",4.7,430,35
+55,5,16/3/24,Chowmein Express,"[Chicken Chowmein, Spring Rolls]",4,450,28
+56,1,15/3/24,Sweet Treats,"[Gulab Jamun, Rasgulla]",4.8,280,25
+57,2,14/3/24,Indian Bistro,"[Aloo Gobi, Tandoori Roti]",4,330,22
+58,3,13/3/24,Coastal Spice,"[Prawn Curry, Rice]",4.5,590,40
+59,4,12/3/24,Street Delights,"[Vada Pav, Sev Puri]",4.2,200,18
+60,5,11/3/24,Green Leaf,"[Palak Paneer, Tandoori Roti]",4,500,30
+61,8,18/5/24,Spice House,"[Chicken Tikka Masala, Naan]",4.5,520,35
+62,15,17/5/24,Pizza Hub,"[Pepperoni Pizza, Garlic Bread, Soft Drink]",4,750,30
+63,9,17/5/24,Mama's Kitchen,"[Paneer Butter Masala, Tandoori Roti]",3.5,450,25
+64,12,16/5/24,Burger Palace,"[Cheeseburger, Fries, Milkshake]",4.2,600,22
+65,6,15/5/24,Subway,"[Chicken Sub, Cookies, Coke]",4,420,20
+66,11,14/5/24,Taco Town,"[Beef Tacos, Nachos, Salsa]",4.3,480,28
+67,19,14/5/24,Dragon Express,"[Kung Pao Chicken, Fried Rice]",4.7,500,33
+68,7,13/5/24,Sushi World,"[Salmon Sushi Platter, Miso Soup]",4.8,900,40
+69,18,12/5/24,The Belgian Waffle,Mini Waffle Box of 4 - Chocolate,4.5,378.15,28
+70,13,12/5/24,Pasta La Vista,"[Penne Alfredo, Garlic Bread]",4.1,430,30
+71,5,11/5/24,Green Bowl,"[Caesar Salad, Smoothie]",4.4,350,18
+72,20,10/5/24,Curry Corner,"[Butter Chicken, Jeera Rice]",4.6,520,25
+73,3,10/5/24,Thai Orchid,"[Green Curry, Jasmine Rice]",4.5,480,32
+74,16,9/5/24,Shawarma King,"[Chicken Shawarma Wrap, Hummus]",4.2,360,24
+75,2,9/5/24,Biryani Palace,"[Hyderabadi Biryani, Raita]",4.8,590,37
+76,17,8/5/24,Mediterranean Delights,"[Falafel Plate, Pita Bread]",4.5,410,26
+77,14,7/5/24,Noodle Nirvana,"[Chicken Lo Mein, Spring Rolls]",4.3,470,29
+78,1,7/5/24,Donut Haven,"[Assorted Donut Box, Cappuccino]",4,350,20
+79,10,6/5/24,BBQ Bliss,"[Pulled Pork Sandwich, Coleslaw]",4.6,530,28
+80,4,5/5/24,Juice Junction,"[Mango Smoothie, Veggie Sandwich]",4.2,400,22
+81,12,5/5/24,Spicy Delight,"[Lamb Rogan Josh, Naan]",4.7,580,33
+82,7,4/5/24,Dosa Hut,"[Masala Dosa, Coconut Chutney]",4.8,320,21
+83,8,4/5/24,French Bakery,"[Croissant, Hot Chocolate]",4.5,280,18
+84,6,3/5/24,Sushi Zone,"[Tuna Roll, Seaweed Salad]",4.7,470,35
+85,9,2/5/24,Crepe Corner,"[Nutella Crepe, Latte]",4.3,250,17
+86,11,2/5/24,Tandoori Flames,"[Tandoori Chicken, Roti]",4.6,540,29
+87,15,1/5/24,Pasta Palace,"[Spaghetti Bolognese, Bruschetta]",4.5,490,27
+88,14,1/5/24,Cafe Mocha,"[Muffin, Espresso]",4.4,180,12
+89,13,30/4/24,Urban Wraps,"[Chicken Kathi Roll, Lemonade]",4.2,370,20
+90,19,30/4/24,Chopsticks Express,"[Sweet and Sour Pork, Egg Roll]",4.6,520,31
+91,18,29/4/24,Grill & Chill,"[BBQ Ribs, Cornbread]",4.7,630,35
+92,10,29/4/24,Healthy Bites,"[Quinoa Salad, Green Juice]",4.4,420,23
+93,16,28/4/24,Spice Route,"[Chole Bhature, Lassi]",4.5,400,25
+94,4,28/4/24,Pizza Planet,"[Veggie Pizza, Mozzarella Sticks]",4.3,600,32
+95,17,27/4/24,Mexican Fiesta,"[Chicken Burrito, Guacamole]",4.6,450,29
+96,2,27/4/24,Golden Dragon,"[Szechuan Chicken, Noodles]",4.7,550,33
+97,1,26/4/24,South Indian Delight,"[Idli Sambar, Filter Coffee]",4.5,300,18
+98,5,25/4/24,The Greek Table,"[Gyro, Greek Salad]",4.4,520,30
+99,20,25/4/24,Chinese Wok,"[General Tso's Chicken, Fried Rice]",4.6,540,28
+100,6,24/4/24,Beirut Bites,"[Shawarma Plate, Baklava]",4.3,470,32
+101,11,24/4/24,Falafel House,"[Hummus and Pita, Greek Salad]",4.5,430,24
+102,8,23/4/24,Steakhouse,"[Ribeye Steak, Mashed Potatoes]",4.8,890,40
+103,9,22/4/24,Fiery Curry,"[Spicy Vindaloo, Basmati Rice]",4.7,570,35
+104,7,22/4/24,Tapas Tavern,"[Patatas Bravas, Sangria]",4.6,520,30
+105,15,21/4/24,Delhi Delight,"[Paneer Tikka, Butter Naan]",4.5,480,27
+106,14,21/4/24,Goan Shack,"[Prawn Curry, Goan Rice]",4.4,650,32
+107,3,20/4/24,Island Grill,"[Jerk Chicken, Plantains]",4.3,540,28
+108,12,20/4/24,Maharaja's Feast,"[Lamb Biryani, Raita]",4.8,700,36
+109,20,19/4/24,Roll House,"[Egg Roll, Soft Drink]",4.2,300,20
+110,13,19/4/24,Curry Leaf,"[Paneer Korma, Roti]",4.5,500,27
+111,17,18/4/24,Smoothie Spot,"[Berry Blast Smoothie, Veggie Wrap]",4.3,370,18
+112,18,18/4/24,Italiano's,"[Margherita Pizza, Tiramisu]",4.6,580,30
+113,1,17/4/24,Cafe Latte,"[Chocolate Muffin, Caramel Latte]",4.4,230,15
+114,6,17/4/24,Seafood Shack,"[Grilled Salmon, Caesar Salad]",4.7,690,34
+115,19,16/4/24,Dumpling House,"[Chicken Dumplings, Hot and Sour Soup]",4.8,520,28
+116,7,16/4/24,Pasta Mania,"[Fettuccine Alfredo, Garlic Knots]",4.5,490,25
+117,5,15/4/24,Veggie Delight,"[Veggie Burger, Sweet Potato Fries]",4.3,440,22
+118,2,15/4/24,Southern Comfort,"[Fried Chicken, Biscuits]",4.7,560,29
+119,4,14/4/24,Thai Spice,"[Pad Thai, Thai Iced Tea]",4.6,480,28
+120,10,14/4/24,Crepe Culture,"[Berry Crepe, Vanilla Ice Cream]",4.5,340,20

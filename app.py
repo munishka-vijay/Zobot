@@ -82,16 +82,18 @@ if 'conversation' not in st.session_state:
     st.session_state['data'] = data
 
 # Chat input box
-user_input = st.text_input("You: ", "")
+user_input = st.chat_input("You: ")
 
 if user_input:
     # Get the response from the chatbot
     response = get_gpt_response(user_input)
 
+
 # Display conversation history in order, including the latest response at the bottom
 for message in st.session_state['conversation'][1:]:  # Skip the first message
     speaker = "You" if message['role'] == "user" else "Zobot"
     st.markdown(f"**{speaker}:** {message['content']}")
+
 
 if __name__ == "__main__":
     pass
