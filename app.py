@@ -59,12 +59,13 @@ def get_gpt_response(prompt, model="gpt-4o"):
 
 # Function to load initial prompt from a text file
 def load_initial_prompt(file_path):
+    """ Function to load and read the file with the initial prompt"""
     with open(file_path, 'r') as file:
         return file.read().strip()
 
 # Function to load data from a CSV file
-def load_csv_data(file_path):
-    return pd.read_csv(file_path)
+# def load_csv_data(file_path):
+#     return pd.read_csv(file_path)
 
 # Center-align the title using HTML/CSS
 st.markdown(
@@ -86,13 +87,13 @@ st.markdown("<h1 class='centered-title'>Zobot - Your Foodie Friend</h1>", unsafe
 initial_prompt = load_initial_prompt('initial_prompt.txt')
 
 # Load data from CSV
-data = load_csv_data('training_data.csv')
+# data = load_csv_data('training_data.csv')
 
 # Initialize conversation history in session state with the initial prompt
 if 'conversation' not in st.session_state:
     st.session_state['conversation'] = [{"role": "assistant", "content": initial_prompt}]
     # Optionally, you can also store the data in session state if needed later
-    st.session_state['data'] = data
+    # st.session_state['data'] = data
 
 # Chat input box
 user_input = st.chat_input("You: ")
