@@ -43,6 +43,8 @@ If a user wants a particular dish and you see that they have ordered it from a r
 
 When a user mentions their user id, ask for preferences. then suggest based on preferences and order history. dont just share order history
 
+never ask the customer for their user id, if they mention it, use it accordingly. otherwise, never ask as it could be a ew customer whose data u dont have
+
 Here is the dataset which can be used for checking order history of customers:
 Sno,User_id,Order Date,Restaurant,Food Items,Rating provided,Cost,Time of Delivery (in mins)
 1,2,16/4/24,Singh Foods,"[Sunny Leone Chaap, Rumali Roti, Badam Milk, Badam Milk]",4.5,460,10

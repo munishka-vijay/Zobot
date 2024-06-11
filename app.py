@@ -3,7 +3,6 @@ Contains code to run chatbot
 """
 
 import os
-import pandas as pd
 from configparser import ConfigParser
 import streamlit as st
 import openai
