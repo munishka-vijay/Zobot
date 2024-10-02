@@ -23,7 +23,7 @@ load_env()
 # Get the API key from environment variable
 api_key = os.environ.get("OPENAI_API_KEY")
 
-st.set_page_config(page_title="Zobot", page_icon=":robot_face:")
+st.set_page_config(page_title="SwiGo Bot", page_icon=":robot_face:")
 
 # Function to get a response from GPT-4o using the chat/completions endpoint
 def get_gpt_response(prompt, model="gpt-4o"):
@@ -80,7 +80,7 @@ st.markdown(
 
 # Display the title with the centered-title class
 # Title of the page
-st.markdown("<h1 class='centered-title'>Zobot - Your Foodie Friend</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='centered-title'>SwiGo - Your Foodie Friend</h1>", unsafe_allow_html=True)
 
 # Load initial prompt
 initial_prompt = load_initial_prompt('initial_prompt.txt')
@@ -163,7 +163,7 @@ for message in st.session_state['conversation'][1:]:  # Skip the first message
     else:
         st.markdown(f"""
             <div class='message-container bot-container'>
-                <div class='bot-name'>Zobot</div>
+                <div class='bot-name'>SwiGo</div>
                 <div class='bot-message'>{message['content']}</div>
             </div>
         """, unsafe_allow_html=True)

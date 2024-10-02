@@ -1,4 +1,4 @@
-# Zobot
+# SwiGo Bot
 A chatbot built with chatgpt that recommends food to order based on your preferences, order history and asks for your confirmation before placing your order!
 Try it and see for yourself!
 
